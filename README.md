@@ -1,0 +1,2 @@
+# blog
+Craft Travel Blog
