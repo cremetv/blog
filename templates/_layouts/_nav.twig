@@ -1,0 +1,14 @@
+{% import '_macros' as macros %}
+<header class="main-header">
+  <nav class="main-menu">
+    <ul class="menu">
+      <li class="{% if craft.app.request.absoluteUrl == siteUrl %}active{% endif %}"><a href="{{ siteUrl }}">Home</a></li>
+      <li class="{{ macros.isActive('ueber-uns') }}"><a href="{{ url('ueber-uns') }}">Über uns</a></li>
+    </ul>
+
+    <ul class="social">
+      <li><a href="#!">FB</a></li>
+      <li><a href="#!">IG</a></li>
+    </ul>
+  </nav>
+</header>
