@@ -1,0 +1,74 @@
+/*
+* Get Instagram Access Token
+*/
+const getToken = () => {
+  return new Promise((resolve, reject) => {
+    let url = '../instagram.json';
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    xhr.addEventListener('load', function() {
+      let response = JSON.parse(this.response);
+      if (response.accessToken) {
+        resolve(response.accessToken);
+      } else {
+        reject('error');
+      }
+    });
+
+    xhr.send();
+  });
+}
+
+
+/*
+* Get instagram pictures
+*/
+const getInstaFeed = (token) => {
+  const api = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${token}`;
+  const xhr = new XMLHttpRequest();
+
+  xhr.open('GET', api, true);
+  xhr.withCredentials = true;
+  xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+  xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+  xhr.addEventListener('load', function() {
+    let data = JSON.parse(this.repsone);
+    console.log(data);
+    if (data) {
+
+      let images = data.data;
+
+      let i = 0;
+      images.reverse().forEach(image => {
+        if (i >= 5) return;
+        let description = image.caption.text;
+        let link = image.link;
+        let src = image.images.standard_resolution.url;
+
+        console.log(description);
+        console.log(link);
+        console.log(src);
+
+        i++;
+      });
+
+    }
+  });
+
+  xhr.send();
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  const getAccessToken = getToken();
+
+  getAccessToken.then(token => {
+    getInstaFeed(token);
+  }, err => {
+    console.log(`error: ${err}`);
+  });
+
+});

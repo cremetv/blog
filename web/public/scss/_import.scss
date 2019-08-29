@@ -6,6 +6,7 @@
 @import 'base/grid';
 
 /* Components */
+@import 'components/images';
 
 /* Custom */
 @import 'custom/animations';
@@ -13,5 +14,6 @@
 @import 'custom/nav';
 @import 'custom/footer';
 @import 'custom/sidebar';
+@import 'custom/intro';
 @import 'custom/main';
 @import 'custom/js-tween';

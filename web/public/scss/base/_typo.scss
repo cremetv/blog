@@ -47,10 +47,26 @@ html {
   font-size: 18px;
 }
 
-
 a {
   text-decoration: none;
   color: $typo;
+
+  &.more {
+    display: inline-block;
+    padding-left: 1rem;
+    position: relative;
+    font-weight: $fw-bold;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: .6em;
+      width: .5rem;
+      height: 1px;
+      background: $typo;
+    }
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -59,7 +75,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   color: $typo;
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
 strong {
@@ -68,6 +84,8 @@ strong {
 }
 
 ul {
+  margin: 0;
+  padding: 0;
 
   li {
     color: $typo;

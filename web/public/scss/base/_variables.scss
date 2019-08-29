@@ -1,17 +1,9 @@
 /* colors */
-$main: #009ba4;
+$main: #ef3340;
 
-$blue: #004494;
-
-$typo: #313131;
-$heading: #202020;
-$lightgrey: #E6E6E6;
-$grey: #313131;
-$darkgrey: #202020;
-
-$red: #e30613;
-
-$error: #EF3340;
+$typo: #626261;
+$heading: #626261;
+$lightgrey: #b6b6b7;
 
 $white: #fff;
 $black: #000;
@@ -41,7 +33,5 @@ $depth-3-u: 0 -7px 14px rgba(50,50,93,.1), 0 -3px 6px rgba(0,0,0,.08); // hover
 
 /* z-index layers */
 $z-layers: (
-  'main-nav': 1002,
-  'burger':   1004,
-  'mobileLogo': 1003,
+  'element': 1,
 );

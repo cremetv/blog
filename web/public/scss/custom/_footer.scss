@@ -1,3 +1,70 @@
 .main-footer {
   grid-area: footer;
+  background: lighten($lightgrey, 20%);
+  padding: 1rem;
+
+  a {
+    display: block;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    padding: 1rem 0;
+  }
+
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint('m') {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+
+  &__copy {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5rem;
+
+    @include breakpoint('m') {
+      flex-direction: row;
+    }
+  }
+
+
+  &__ice {
+    a {
+      display: block;
+      height: calc(1.5rem + 2rem);
+      padding: 1rem 2rem;
+      mix-blend-mode: difference;
+
+      svg {
+        height: 1.25rem;
+        vertical-align: middle;
+      }
+    }
+  }
+
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint('m') {
+      flex-direction: row;
+    }
+
+    a {
+
+      @include breakpoint('m') {
+        + a {
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+
 }

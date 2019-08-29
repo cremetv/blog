@@ -1,3 +1,36 @@
-main {
+.content {
+  padding: 4rem 0;
   grid-area: main;
+
+  display: grid;
+  grid: "main" 1fr
+        "sidebar" auto
+        / 1fr;
+
+  @include breakpoint('m') {
+    grid: "main sidebar" 1fr
+          / 1fr auto;
+  }
+
+  > .container {
+    grid-area: main;
+    display: grid;
+    grid-gap: 1rem;
+    grid: "main" 1fr
+          "sidebar" auto
+          / 1fr;
+
+    @include breakpoint('m') {
+      grid: "main sidebar" 1fr
+            / 1fr auto;
+    }
+
+    main {
+      grid-area: main;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+    }
+  }
 }

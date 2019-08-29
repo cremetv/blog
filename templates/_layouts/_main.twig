@@ -47,20 +47,18 @@
 </head>
 <body class="{% block bodyClass %}{% endblock %} {% if currentUser %}admin{% endif %}" data-barba="wrapper">
 
-  <div class="container">
+  <div class="wrap">
     {% include '_layouts/_nav.twig' %}
 
     {% block main %}{% endblock %}
 
-    {% include '_layouts/_sidebar.twig' %}
-
     {% include '_layouts/_footer.twig' %}
   </div>
 
-<script
+<!-- <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 {% do view.registerJsFile(rev(siteUrl ~ 'public/js/utility/lazysizes.min.js')) %}
 {% do view.registerJsFile(rev(siteUrl ~ 'public/js/main.min.js')) %}
