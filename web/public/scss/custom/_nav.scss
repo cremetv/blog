@@ -3,7 +3,7 @@
 */
 .burger {
   position: fixed;
-  right: 1.5rem;
+  right: .5rem;
   top: 1rem;
   width: 3rem;
   height: 3rem;
@@ -11,6 +11,10 @@
   justify-content: center;
   align-items: center;
   @include z-index('burger');
+
+  @include breakpoint('s') {
+    right: 1.5rem;
+  }
 
   @include breakpoint('m') {
     display: none;
@@ -71,11 +75,15 @@
 */
 .mobile-logo {
   position: fixed;
-  left: 2rem;
+  left: 1rem;
   top: 1rem;
   height: 3rem;
   line-height: 3rem;
   @include z-index('burger');
+
+  @include breakpoint('s') {
+    left: 2rem;
+  }
 
   @include breakpoint('m') {
     display: none;
