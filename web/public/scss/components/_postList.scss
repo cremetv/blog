@@ -107,7 +107,7 @@
       font-size: 4rem;
       font-weight: $fw-bold;
       font-family: 'Poppins', sans-serif;
-      color: $lightgrey;
+      color: lighten($lightgrey, 10%);
       line-height: .8;
     }
 
