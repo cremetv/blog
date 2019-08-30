@@ -15,7 +15,7 @@
   <link rel="shortcut icon" sizes="32x32" href="{{ siteUrl }}favicons/32.png" type="image/png">
   <link rel="shortcut icon" sizes="96x96" href="{{ siteUrl }}favicons/96.png" type="image/png">
 
-  {% do view.registerCssFile(rev(siteUrl ~ 'public/css/style.min.css?v=300820191239')) %}
+  {% do view.registerCssFile(rev(siteUrl ~ 'public/css/style.min.css?v=300820191240')) %}
 
   {% block headScripts %}{% endblock %}
 
@@ -63,7 +63,7 @@
   crossorigin="anonymous"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 {% do view.registerJsFile(rev(siteUrl ~ 'public/js/utility/lazysizes.min.js'), {"async": "async", "defer": "defer"}) %}
-{% do view.registerJsFile(rev(siteUrl ~ 'public/js/main.min.js?v=300820191239')) %}
+{% do view.registerJsFile(rev(siteUrl ~ 'public/js/main.min.js?v=300820191240')) %}
 {% block scripts %}{% endblock %}
 </body>
 </html>
