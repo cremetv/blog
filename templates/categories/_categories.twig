@@ -1,0 +1,28 @@
+{% extends "_layouts/_main" %}
+
+{% block bodyClass %}category {{ category }}{% endblock %}
+{% block namespace %}category{% endblock %}
+
+{% block main %}
+
+{% include '_components/_openingImage.twig' %}
+
+<div class="content">
+  <div class="container">
+
+    <main class="category {{ category }}">
+
+      <div class="category__title">
+        <h1>Kategorie: {{ category }}</h1>
+      </div>
+
+      {% include '_components/_blogPosts.twig' with {'foo': 'bar'} %}
+
+    </main>
+
+    {% include '_layouts/_sidebar.twig' %}
+
+  </div>
+</div>
+
+{% endblock %}

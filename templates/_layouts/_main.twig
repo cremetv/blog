@@ -47,7 +47,11 @@
 </head>
 <body class="{% block bodyClass %}{% endblock %} {% if currentUser %}admin{% endif %}" data-barba="wrapper">
 
-  {% set openingImage = entry.openingImage.one() %}
+  {% if entry is defined %}
+    {% set openingImage = entry.openingImage.one() %}
+  {% else %}
+    {% set openingImage = craft.assets.filename('photo-1465056836041-7f43ac27dcb5.jpg').one() %}
+  {% endif %}
 
   <div class="barba-contaienr wrap {% if openingImage %}has-intro-image{% endif %}" data-barba="container" data-barba-namespace="{% block namespace %}default{% endblock %}">
     {% include '_layouts/_nav.twig' %}

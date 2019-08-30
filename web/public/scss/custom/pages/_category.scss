@@ -1,0 +1,14 @@
+main.category {
+
+  .category__title {
+
+    h1 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin-top: 0;
+      margin-bottom: 2rem;
+      letter-spacing: .17em;
+      font-weight: $fw-bold;
+    }
+  }
+}

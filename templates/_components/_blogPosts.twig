@@ -1,6 +1,13 @@
 <section class="blog-list">
 
-  {% set posts = craft.entries.section('blogpost').limit(null).all() %}
+  {# {{ entry.type }} #}
+
+  {% if category is defined %}
+    {% set posts = craft.entries.section('blogpost').relatedTo(category).orderBy('postDate desc').limit(null).all() %}
+  {% else %}
+    {% set posts = craft.entries.section('blogpost').orderBy('postDate desc').limit(null).all() %}
+  {% endif %}
+
   {% for post in posts %}
     <div class="post">
       <div class="post__image">
@@ -13,6 +20,10 @@
             <img style="{% if placeholder.hasFocalPoint %}{% set x = placeholder.focalPoint | first * 100 ~ '%' %}{% set y = placeholder.focalPoint | last * 100 ~ '%' %}object-position: {{x}} {{y}};{% endif %}" src="{{ placeholder.url }}" alt="{{ placeholder.title }} | {{ siteName }}" class="responsive-img">
           {% endif %}
         </a>
+      </div>
+
+      <div class="post__categories">
+        {% for category in post.category.all() %}<a href="{{ category.url }}">{{ category.title }}</a>{% endfor %}
       </div>
 
       <div class="post__content">
