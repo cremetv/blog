@@ -64,6 +64,33 @@
   }
 }
 
+
+
+/*
+* Mobile Logo
+*/
+.mobile-logo {
+  position: fixed;
+  left: 2rem;
+  top: 1rem;
+  height: 3rem;
+  line-height: 3rem;
+  @include z-index('burger');
+
+  @include breakpoint('m') {
+    display: none;
+  }
+
+  a {
+    display: block;
+    // padding: 1rem 2rem;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    letter-spacing: .2em;
+  }
+}
+
+
 /*
 * Menu
 */
@@ -163,6 +190,14 @@
       }
 
       li {
+
+        &.logo {
+          display: none;
+
+          @include breakpoint('m') {
+            display: block;
+          }
+        }
 
         + li {
           margin-top: 2rem;

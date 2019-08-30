@@ -770,6 +770,25 @@ main.post {
       top: .5rem; }
 
 /*
+* Mobile Logo
+*/
+.mobile-logo {
+  position: fixed;
+  left: 2rem;
+  top: 1rem;
+  height: 3rem;
+  line-height: 3rem;
+  z-index: 1005; }
+  @media only screen and (min-width: 960px) {
+    .mobile-logo {
+      display: none; } }
+  .mobile-logo a {
+    display: block;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    letter-spacing: .2em; }
+
+/*
 * Menu
 */
 .main-header {
@@ -903,6 +922,11 @@ main.post {
           -webkit-box-align: start;
           -ms-flex-align: start;
           align-items: flex-start; } }
+      .main-header .main-menu .menu li.logo {
+        display: none; }
+        @media only screen and (min-width: 960px) {
+          .main-header .main-menu .menu li.logo {
+            display: block; } }
       .main-header .main-menu .menu li + li {
         margin-top: 2rem; }
         @media only screen and (min-width: 960px) {
