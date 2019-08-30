@@ -1004,21 +1004,34 @@ main.post {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    line-height: 1.5rem; }
+    line-height: 1.5rem;
+    text-align: center; }
     @media only screen and (min-width: 960px) {
       .main-footer__copy {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
-        flex-direction: row; } }
-  .main-footer__ice a {
-    display: block;
-    height: calc(1.5rem + 2rem);
-    padding: 1rem 2rem;
-    mix-blend-mode: difference; }
-    .main-footer__ice a svg {
-      height: 1.25rem;
-      vertical-align: middle; }
+        flex-direction: row;
+        text-align: left; } }
+  .main-footer__ice {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .main-footer__ice a {
+      display: block;
+      height: calc(1.5rem + 2rem);
+      padding: 1rem 2rem;
+      mix-blend-mode: difference; }
+      .main-footer__ice a svg {
+        height: 1.25rem;
+        vertical-align: middle; }
   .main-footer__links {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1026,16 +1039,29 @@ main.post {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
-    flex-direction: column; }
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 1rem; }
     @media only screen and (min-width: 960px) {
       .main-footer__links {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
-        flex-direction: row; } }
-    @media only screen and (min-width: 960px) {
+        flex-direction: row;
+        margin-top: 0; } }
+    .main-footer__links a {
+      padding: 0; }
       .main-footer__links a + a {
-        margin-left: 1rem; } }
+        margin-top: 1rem; }
+        @media only screen and (min-width: 960px) {
+          .main-footer__links a + a {
+            margin-top: 0;
+            margin-left: 1rem; } }
 
 .sidebar {
   grid-area: sidebar;
