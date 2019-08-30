@@ -3,6 +3,7 @@
  *
  * copyright Ice-Creme (https://ice-creme.de/)
 */
+//@prepros-prepend components/sw.js
 //@prepros-prepend utility/imagesLoaded.js
 //@prepros-prepend components/barba.js
 

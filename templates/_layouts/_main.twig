@@ -15,6 +15,8 @@
   <link rel="shortcut icon" sizes="32x32" href="{{ siteUrl }}favicons/32.png" type="image/png">
   <link rel="shortcut icon" sizes="96x96" href="{{ siteUrl }}favicons/96.png" type="image/png">
 
+  <link rel="manifest" href="manifest.json">
+
   {% do view.registerCssFile(rev(siteUrl ~ 'public/css/style.min.css?v=300820191240')) %}
 
   {% block headScripts %}{% endblock %}
