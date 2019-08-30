@@ -66,22 +66,28 @@
     &__categories {
       display: flex;
       flex-direction: row;
-      padding: 1rem 1rem 0;
+      flex-wrap: wrap;
+      padding: 1rem 1rem .5rem;
 
       > a {
         display: block;
         padding: .25rem .5rem;
         border: 1px solid $lightgrey;
         font-size: .8rem;
+        margin-bottom: .5rem;
+        margin-right: 1rem;
+        transition: color .25s $cubic, border .25s $cubic;
 
-        + a {
-          margin-left: 1rem;
+        &:hover {
+          border-color: $main;
+          color: $main;
         }
       }
     }
 
     &__content {
       padding: 1rem;
+      padding-top: 0;
       // margin-top: .5rem;
     }
 
