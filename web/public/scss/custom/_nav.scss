@@ -117,13 +117,14 @@
     right: 0;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     transform: translateX(100vw);
     background: $white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     @include z-index('menu');
+    transition: height .25s $cubic;
 
     &.open {
       ul {
