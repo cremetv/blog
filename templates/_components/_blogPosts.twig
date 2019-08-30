@@ -1,0 +1,49 @@
+<section class="blog-list">
+
+  {% set posts = craft.entries.section('blogpost').limit(null).all() %}
+  {% for post in posts %}
+    <div class="post">
+      <div class="post__image">
+        <a href="{{ post.url }}">
+          {% set image = post.openingImage.one() %}
+          {% if image %}
+            <img class="responsive-img" style="{% if image.hasFocalPoint %}{% set x = image.focalPoint | first * 100 ~ '%' %}{% set y = image.focalPoint | last * 100 ~ '%' %}object-position: {{x}} {{y}};{% endif %}" src="{{ image.url }}" alt="{{ image.title }} | {{ siteName }}">
+          {% else %}
+            {% set placeholder = craft.assets.filename('placeholder.jpg').one() %}
+            <img style="{% if placeholder.hasFocalPoint %}{% set x = placeholder.focalPoint | first * 100 ~ '%' %}{% set y = placeholder.focalPoint | last * 100 ~ '%' %}object-position: {{x}} {{y}};{% endif %}" src="{{ placeholder.url }}" alt="{{ placeholder.title }} | {{ siteName }}" class="responsive-img">
+          {% endif %}
+        </a>
+      </div>
+
+      <div class="post__content">
+        <div class="post__title">
+          <a href="{{ post.url }}">
+            {{ post.title }}
+          </a>
+        </div>
+
+        <div class="post__excerpt">
+          <p>
+            {{ post.introText|length > 120 ? post.introText|striptags|slice(0, 120) ~ '...' : post.introText|striptags  }}
+          </p>
+        </div>
+
+        <div class="post__more">
+          <a href="{{ post.url }}" class="more">mehr lesen</a>
+        </div>
+      </div>
+
+      <div class="post__date">
+        <div class="post__day">
+          {{ post.postDate | date("d") }}
+        </div>
+
+        <div class="post__year">
+          <span>{{ post.postDate | date("M") }}</span>
+          <span>{{ post.postDate | date("Y") }}</span>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+</section>

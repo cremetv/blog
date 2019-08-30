@@ -42,10 +42,17 @@ body {
 
 	display: grid;
   grid: "nav" auto
-        "intro" 50vh
         "main" 1fr
         "footer" auto
-        / 1fr;
+        / 100vw;
+
+  &.has-intro-image {
+    grid: "nav" auto
+          "intro" 50vh
+          "main" 1fr
+          "footer" auto
+          / 100vw;
+  }
 
 
   @include breakpoint('m') {

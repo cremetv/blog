@@ -4,12 +4,24 @@
 
 {% block main %}
 
-<main class="legal {{ entry.section.handle }}">
-  <h1>{{ entry.title }}</h1>
+{% include '_components/_openingImage.twig' %}
 
-  <div class="paragraph">
-    {{ entry.pageCopy }}
+<div class="content">
+  <div class="container">
+
+    <main class="legal {{ entry.section.handle }}">
+
+      <h1>{{ entry.title }}</h1>
+
+      <div class="paragraph">
+        {{ entry.pageCopy }}
+      </div>
+
+    </main>
+
+    {% include '_layouts/_sidebar.twig' %}
+
   </div>
-</main>
+</div>
 
 {% endblock %}

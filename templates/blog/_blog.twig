@@ -1,0 +1,25 @@
+{% extends "_layouts/_main" %}
+
+{% block bodyClass %}{{ entry.section.handle }}{% endblock %}
+
+{% block main %}
+
+{% include '_components/_openingImage.twig' %}
+
+<div class="content">
+  <div class="container">
+
+    <main class="{{ entry.section.handle }}">
+
+      <h1>Main</h1>
+
+      {% include '_components/_blogPosts.twig' %}
+
+    </main>
+
+    {% include '_layouts/_sidebar.twig' %}
+
+  </div>
+</div>
+
+{% endblock %}

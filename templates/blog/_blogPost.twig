@@ -1,0 +1,73 @@
+{% extends "_layouts/_main" %}
+
+{% block bodyClass %}post {{ entry.section.handle }}{% endblock %}
+
+{% block main %}
+
+{% include '_components/_openingImage.twig' %}
+
+<div class="content">
+  <div class="container">
+
+    <main class="post {{ entry.section.handle }}">
+
+      <div class="post__headline">
+        <h1>{{ entry.title }}</h1>
+      </div>
+
+      <div class="post__subheadline">
+        <h2>{{ entry.subheadline }}</h2>
+      </div>
+
+      <div class="post__introText">
+        {{ entry.introText }}
+      </div>
+
+
+      <div class="post__content">
+
+        {% if entry.pageContent %}
+          {% for block in entry.pageContent.all() %}
+
+            {% set type = block.type.handle %}
+            {% set isFirstBlock = (loop.first or type != block.getPrev().type.handle) %}
+            {% set isLastBlock = (loop.last or type != block.getNext().type.handle) %}
+
+            {% switch type %}
+
+              {# text #}
+              {% case 'text' %}
+                <div class="post__content--text">
+                  {{ block.text }}
+                </div>
+              {# /text #}
+
+              {# image #}
+              {% case 'image' %}
+                <div class="post__content--image">
+                  {% set images = block.image.all() %}
+                  {% for image in images %}
+                    <div class="image">
+                      <img data-src="{{ image.url }}" alt="{{ image.title }} | {{ siteName }}" class="lazyload">
+                    </div>
+                  {% endfor %}
+                </div>
+              {# /image #}
+
+            {% endswitch %}
+
+          {% endfor %}
+        {% endif %}
+
+      </div>
+
+
+
+    </main>
+
+    {% include '_layouts/_sidebar.twig' %}
+
+  </div>
+</div>
+
+{% endblock %}

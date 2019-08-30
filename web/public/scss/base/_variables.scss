@@ -1,5 +1,5 @@
 /* colors */
-$main: #ef3340;
+$main: #69b9b6;
 
 $typo: #626261;
 $heading: #626261;
@@ -14,7 +14,7 @@ $fw-light: 300;
 $fw-normal: 400;
 $fw-semi: 600;
 $fw-bold: 700;
-// $fw-black: 900;
+$fw-black: 900;
 
 /* Easing */
 $cubic: cubic-bezier(.25,.46,.45,.94);
@@ -33,5 +33,6 @@ $depth-3-u: 0 -7px 14px rgba(50,50,93,.1), 0 -3px 6px rgba(0,0,0,.08); // hover
 
 /* z-index layers */
 $z-layers: (
-  'element': 1,
+  'menu': 1000,
+  'burger': 1005,
 );
