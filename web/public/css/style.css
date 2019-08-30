@@ -447,6 +447,7 @@ html {
     padding-right: 17px; } }
 
 body {
+  background: #fff;
   margin: 0;
   width: 100%;
   max-width: 100%;
@@ -747,7 +748,7 @@ main.post {
     position: relative;
     width: 2rem;
     height: 2px;
-    background: #626261;
+    background: #484848;
     -webkit-transition: background 0s linear .25s;
     -o-transition: background 0s linear .25s;
     transition: background 0s linear .25s; }
@@ -757,7 +758,7 @@ main.post {
       left: 0;
       width: 100%;
       height: 100%;
-      background: #626261;
+      background: #484848;
       -webkit-transition: top 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s, bottom 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s, -webkit-transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       transition: top 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s, bottom 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s, -webkit-transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       -o-transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), top 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s, bottom 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s;
