@@ -1281,4 +1281,7 @@ main.post {
     .content > .container .sidebar {
       grid-area: sidebar; }
 
+.legal .paragraph > * {
+  word-break: break-word; }
+
 /*# sourceMappingURL=style.css.map */

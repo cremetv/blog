@@ -1,0 +1,9 @@
+.legal {
+
+  .paragraph {
+
+     > * {
+       word-break: break-word;
+     }
+  }
+}
