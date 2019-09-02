@@ -1,6 +1,7 @@
 .content {
   padding: 4rem 0;
   grid-area: main;
+  background: $white;
 
   display: grid;
   grid: "main" 1fr
@@ -30,6 +31,7 @@
 
     main {
       grid-area: main;
+      background: $white;
     }
 
     .sidebar {

@@ -465,6 +465,7 @@ body {
   -ms-flex: 1;
   flex: 1;
   width: 100%;
+  background: #fff;
   display: -ms-grid;
   display: grid;
   grid: "nav" auto "main" 1fr "footer" auto / 100vw; }
@@ -801,11 +802,15 @@ main.post {
 */
 .mobile-logo {
   position: fixed;
-  left: 1rem;
-  top: 1rem;
-  height: 3rem;
+  width: 100%;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.6);
+  left: 0;
+  top: 0;
+  padding: 1rem;
+  height: 5rem;
   line-height: 3rem;
-  z-index: 1005; }
+  z-index: 1004; }
   @media only screen and (min-width: 640px) {
     .mobile-logo {
       left: 2rem; } }
@@ -813,7 +818,7 @@ main.post {
     .mobile-logo {
       display: none; } }
   .mobile-logo a {
-    display: block;
+    display: inline-block;
     text-transform: uppercase;
     font-size: 1.25rem;
     letter-spacing: .2em; }
@@ -1285,6 +1290,7 @@ main.post {
 .content {
   padding: 4rem 0;
   grid-area: main;
+  background: #fff;
   display: -ms-grid;
   display: grid;
   grid: "main" 1fr "sidebar" auto / 100vw; }
@@ -1302,7 +1308,8 @@ main.post {
         grid-gap: 3rem;
         grid: "main sidebar" auto "main empty" 1fr / 1fr auto; } }
     .content > .container main {
-      grid-area: main; }
+      grid-area: main;
+      background: #fff; }
     .content > .container .sidebar {
       grid-area: sidebar; }
 
