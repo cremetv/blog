@@ -47,6 +47,7 @@ barba.init({
       console.log(next);
 
       done();
+      parallax();
 
       TweenMax.from(next.container, 1, {
         y: 300,

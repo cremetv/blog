@@ -11,6 +11,7 @@
 //@prepros-append components/scrollMagic.js
 
 window.onload = () => {
+  parallax();
 
   console.log('sw!!');
   let swRegistration;
