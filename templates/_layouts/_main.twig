@@ -18,7 +18,7 @@
 
   <link rel="manifest" href="manifest.json">
 
-  {% do view.registerCssFile(rev(siteUrl ~ 'public/css/style.min.css?v=020920191103')) %}
+  {% do view.registerCssFile(rev(siteUrl ~ 'public/css/style.min.css?v=140920190145')) %}
 
   {% block headScripts %}{% endblock %}
 
@@ -73,7 +73,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
 {% do view.registerJsFile(siteUrl ~ "public/js/utility/barba.min.js") %}
 {% do view.registerJsFile(rev(siteUrl ~ 'public/js/utility/lazysizes.min.js'), {"async": "async", "defer": "defer"}) %}
-{% do view.registerJsFile(rev(siteUrl ~ 'public/js/main.min.js?v=020920191103')) %}
+{% do view.registerJsFile(rev(siteUrl ~ 'public/js/main.min.js?v=140920190145')) %}
 {% block scripts %}{% endblock %}
 </body>
 </html>
