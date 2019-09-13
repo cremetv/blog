@@ -43,13 +43,13 @@ body {
   background: $white;
 
 	display: grid;
-  grid: "nav" auto
+  grid: "nav" 5rem
         "main" 1fr
         "footer" auto
         / 100vw;
 
   &.has-intro-image {
-    grid: "nav" auto
+    grid: "nav" 5rem
           "intro" 50vh
           "main" 1fr
           "footer" auto
@@ -58,12 +58,18 @@ body {
 
 
   @include breakpoint('m') {
-    // padding: 2rem;
-  //   grid: "nav nav" auto
-  //         "intro intro" 50vh
-  // 				"main main" 1fr
-  // 				"footer footer" auto
-  //         / 1fr auto;
+    grid: "nav" 97px
+          "main" 1fr
+          "footer" auto
+          / 100vw;
+
+    &.has-intro-image {
+      grid: "nav" 97px
+            "intro" 50vh
+            "main" 1fr
+            "footer" auto
+            / 100vw;
+    }
   }
 }
 

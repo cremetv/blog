@@ -15,6 +15,12 @@
 const parallax = () => {
   const parallaxElements = document.querySelectorAll('.intro');
 
+  const sidebar = document.querySelectorAll('.sidebar')[0];
+  let sidebarOffset = sidebar.offsetTop;
+
+  const nav = document.querySelectorAll('.main-menu')[0];
+  const footer = document.querySelectorAll('.main-footer')[0];
+
   /* set parallax image to initial value */
   parallaxElements.forEach(parallax => {
 		let img = parallax.getElementsByTagName('img')[0];
@@ -59,6 +65,21 @@ const parallax = () => {
   		}
 
   	});
+
+    if (window.innerWidth > 960) {
+      /* sidebar */
+      if (scrollTop < sidebarOffset - nav.offsetHeight - 40) {
+        TweenMax.to(sidebar, 0, {
+          y: 0,
+          ease: Power0.easeNone,
+        });
+      } else if (scrollTop >= sidebarOffset - nav.offsetHeight - 40 && scrollTop < document.body.offsetHeight - footer.offsetHeight - sidebar.offsetHeight - nav.offsetHeight - 80) {
+        TweenMax.to(sidebar, 0, {
+          y: scrollTop - (sidebarOffset - nav.offsetHeight - 40),
+          ease: Power0.easeNone,
+        });
+      }
+    }
 
   });
 }

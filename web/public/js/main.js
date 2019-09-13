@@ -9,9 +9,11 @@
 //@prepros-append components/instaFeed.js
 //@prepros-append components/menu.js
 //@prepros-append components/scrollMagic.js
+//@prepros-append components/sidebar.js
 
 window.onload = () => {
   parallax();
+  initMenu();
 
   console.log('sw!!');
   let swRegistration;
