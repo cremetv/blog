@@ -9,6 +9,7 @@ const getToken = () => {
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     xhr.addEventListener('load', function() {
+      console.log(this.response);
       let response = JSON.parse(this.response);
       if (response.accessToken) {
         resolve(response.accessToken);
@@ -63,12 +64,14 @@ const getInstaFeed = (token) => {
 
 document.addEventListener("DOMContentLoaded", function() {
 
-  const getAccessToken = getToken();
+  getInstaFeed('8034804456.64a966e.d2637c84d7f749dabfe3f93962bfb391');
 
-  getAccessToken.then(token => {
-    getInstaFeed(token);
-  }, err => {
-    console.log(`error: ${err}`);
-  });
+  // const getAccessToken = getToken();
+  //
+  // getAccessToken.then(token => {
+  //   getInstaFeed(token);
+  // }, err => {
+  //   console.log(`error: ${err}`);
+  // });
 
 });
