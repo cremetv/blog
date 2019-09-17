@@ -1,5 +1,3 @@
-const barbaWrap = document.querySelectorAll('.barba-container')[0];
-
 // barba.init({
 //   views: [{
 //     namespace: 'home',
@@ -27,37 +25,38 @@ const barbaWrap = document.querySelectorAll('.barba-container')[0];
 //     leave({ current, next, trigger }) {
 //       const done = this.async();
 //
-//       console.log('leave');
-//       console.log(current);
+//       const tl = new TimelineMax({
+//         onComplete: () => {
+//           done();
+//         }
+//       });
 //
-//       TweenMax.to(current.container, 1, {
+//       tl.to(current.container, 1, {
 //         y: 300,
 //         // scale: 0.5,
 //         autoAlpha: 0,
 //         ease: Power4.easeOut,
-//         onComplete: function() {
-//           window.scrollTo(0, 0);
-//           let html = document.querySelector('html');
-//           html.classList.remove('overflow');
-//           done();
-//         }
 //       });
 //     },
 //     enter({ current, next, trigger }) {
 //       const done = this.async();
-//
-//       console.log('enter');
-//       console.log(next);
-//
 //       done();
-//       parallax();
-//       initMenu();
 //
-//       TweenMax.from(next.container, 1, {
+//       $('body, html').scrollTop(0);
+//       $('html').removeClass('overflow');
+//
+//       const tl = new TimelineMax({
+//         onComplete: () => {
+//           parallax();
+//           initMenu();
+//         }
+//       });
+//
+//       tl.from(next.container, 1, {
 //         y: 300,
 //         // scale: 0.5,
 //         autoAlpha: 0,
-//         ease: Power4.easeOut
+//         ease: Power4.easeOut,
 //       });
 //     }
 //   }]

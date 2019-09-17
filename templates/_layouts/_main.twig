@@ -56,7 +56,9 @@
     {% set openingImage = craft.assets.filename('photo-1465056836041-7f43ac27dcb5.jpg').one() %}
   {% endif %}
 
-  <div class="barba-contaienr wrap {% if openingImage %}has-intro-image{% endif %}" data-barba="container" data-barba-namespace="{% block namespace %}default{% endblock %}">
+  {% set logo = craft.assets.filename('Schwengl_Logo.svg').one() %}
+
+  <div class="barba-container wrap {% if openingImage %}has-intro-image{% endif %}" data-barba="container" data-barba-namespace="{% block namespace %}default{% endblock %}">
     {% include '_layouts/_nav.twig' %}
 
     {% block main %}{% endblock %}
@@ -64,10 +66,10 @@
     {% include '_layouts/_footer.twig' %}
   </div>
 
-<!-- <script
+<script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script> -->
+  crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>

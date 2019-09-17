@@ -3,13 +3,17 @@
 <div class="burger"><span></span></div>
 
 <div class="mobile-logo">
-  <a href="{{ siteUrl }}">Logo</a>
+  <a href="{{ siteUrl }}">
+    <img src="{{ logo.url }}" alt="{{ logo.title }} | {{ siteName }}">
+  </a>
 </div>
 
 <header class="main-header">
   <nav class="main-menu container">
     <ul class="menu">
-      <li class="logo"><a href="{{ siteUrl }}">Logo</a></li>
+      <li class="logo"><a href="{{ siteUrl }}">
+        <img src="{{ logo.url }}" alt="{{ logo.title }} | {{ siteName }}">
+      </a></li>
       <li class="{% if craft.app.request.absoluteUrl == siteUrl %}active{% endif %}"><a href="{{ siteUrl }}">Home</a></li>
       <li class="{{ macros.isActive('ueber-uns') }}"><a href="{{ url('ueber-uns') }}">Über uns</a></li>
     </ul>

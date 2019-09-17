@@ -46,14 +46,14 @@ body {
   grid: "nav" 5rem
         "main" 1fr
         "footer" auto
-        / 100vw;
+        / 100%;
 
   &.has-intro-image {
     grid: "nav" 5rem
           "intro" 50vh
           "main" 1fr
           "footer" auto
-          / 100vw;
+          / 100%;
   }
 
 
@@ -61,14 +61,14 @@ body {
     grid: "nav" 97px
           "main" 1fr
           "footer" auto
-          / 100vw;
+          / 100%;
 
     &.has-intro-image {
       grid: "nav" 97px
             "intro" 50vh
             "main" 1fr
             "footer" auto
-            / 100vw;
+            / 100%;
     }
   }
 }
