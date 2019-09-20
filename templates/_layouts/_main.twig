@@ -4,9 +4,9 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="theme-color" content="#ffffff" />
-  <meta name="msapplication-navbutton-color" content="#ffffff" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff" />
+  <meta name="theme-color" content="#69b9b6" />
+  <meta name="msapplication-navbutton-color" content="#69b9b6" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="#69b9b6" />
 
   {% hook "seo" %}
 
@@ -18,7 +18,7 @@
 
   <link rel="manifest" href="manifest.json">
 
-  {% do view.registerCssFile(rev(siteUrl ~ 'public/css/style.min.css?v=170920190943')) %}
+  {% do view.registerCssFile(rev(siteUrl ~ 'public/css/style.min.css?v=200920191221')) %}
 
   {% block headScripts %}{% endblock %}
 
@@ -58,7 +58,7 @@
 
   {% set logo = craft.assets.filename('Schwengl_Logo.svg').one() %}
 
-  <div class="barba-container wrap {% if openingImage %}has-intro-image{% endif %}" data-barba="container" data-barba-namespace="{% block namespace %}default{% endblock %}">
+  <div class="barba-container wrap has-intro-image" data-barba="container" data-barba-namespace="{% block namespace %}default{% endblock %}">
     {% include '_layouts/_nav.twig' %}
 
     {% block main %}{% endblock %}
@@ -71,11 +71,69 @@
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
-{% do view.registerJsFile(siteUrl ~ "public/js/utility/barba.min.js") %}
+{# <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script> #}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+      integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+      crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+      integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+      crossorigin=""></script>
+
+{% do view.registerJsFile('https://static-assets.mapbox.com/gl-pricing/dist/mapbox-gl.js') %}
+{% do view.registerJsFile('https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.js') %}
+
+{# {% do view.registerJsFile(siteUrl ~ "public/js/utility/barba.min.js") %} #}
 {% do view.registerJsFile(rev(siteUrl ~ 'public/js/utility/lazysizes.min.js'), {"async": "async", "defer": "defer"}) %}
-{% do view.registerJsFile(rev(siteUrl ~ 'public/js/main.min.js?v=170920190943')) %}
+{% do view.registerJsFile(rev(siteUrl ~ 'public/js/main.min.js?v=200920191221')) %}
 {% block scripts %}{% endblock %}
+{% js %}
+  L.mapbox.accessToken = 'pk.eyJ1IjoiY3JlbWV5dCIsImEiOiJjamthcm9hZXAyenFlM2pyeWMwMjV0MGdzIn0.1b2TFDagHOayvurUim2WjQ';
+  var map = L.mapbox.map('map')
+    .setView([{{ map.mapLat }}, {{ map.mapLong }}], {{ map.mapZoom }});
+    {# .setView([-40.3130432088809, 159.60937500000003], 5); #}
+
+  L.mapbox.styleLayer('mapbox://styles/cremeyt/ck0ru1zp40kew1cmf9suqltx6').addTo(map);
+
+  {% for marker in map.mapPoints.all() %}
+    {% set icon = marker.icon.one() %}
+    var mapIcon{{ marker.id }} = L.icon({
+      iconUrl: '{{ icon.url }}',
+      iconSize: [{{ icon.width }}, {{ icon.height }}],
+      iconAnchor: [{{ icon.width / 2 }}, {{ icon.height }}],
+
+      {% switch marker.titlePosition %}
+        {% case 'top' %}
+          popupAnchor: [-2, -{{ icon.height }}],
+        {% case 'right' %}
+          popupAnchor: [{{ icon.width * 2.6 }}, -10],
+        {% case 'bottom' %}
+          popupAnchor: [-2, {{ icon.height }}],
+        {% case 'left' %}
+          popupAnchor: [-{{ icon.width * 2.6 }}, -10],
+      {% endswitch %}
+    });
+
+    L.marker([ {{ marker.lat }}, {{ marker.lang }}], {icon: mapIcon{{ marker.id }} }).addTo(map)
+      .bindPopup('<p>{{ marker.pointName }}</p>')
+      .openPopup();
+  {% endfor %}
+
+  {# var mapIcon = L.icon({
+    iconUrl: './public/images/icons/map-marker.png',
+
+    iconSize: [66, 80],
+    iconAnchor: [33, 80],
+    popupAnchor: [-2, -60]
+  });
+
+
+  L.marker([-36.89733, 174.77504], {icon: mapIcon}).addTo(map)
+    .bindPopup('<p>12 mears place epsom</p>')
+    .openPopup(); #}
+
+{# map.scrollWheelZoom.disable(); #}
+{% endjs %}
 </body>
 </html>

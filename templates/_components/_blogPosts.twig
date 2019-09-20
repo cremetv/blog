@@ -13,11 +13,11 @@
       <div class="post__image">
         <a href="{{ post.url }}">
           {% set image = post.openingImage.one() %}
-          {% if image %}
-            <img class="responsive-img" style="{% if image.hasFocalPoint %}{% set x = image.focalPoint | first * 100 ~ '%' %}{% set y = image.focalPoint | last * 100 ~ '%' %}object-position: {{x}} {{y}};{% endif %}" src="{{ image.url }}" alt="{{ image.title }} | {{ siteName }}">
+          {% if image|length %}
+            <img class="responsive-img lazyload" style="{% if image.hasFocalPoint %}{% set x = image.focalPoint | first * 100 ~ '%' %}{% set y = image.focalPoint | last * 100 ~ '%' %}object-position: {{x}} {{y}};{% endif %}" data-src="{{ image.url }}" alt="{{ image.title }} | {{ siteName }}">
           {% else %}
             {% set placeholder = craft.assets.filename('placeholder.jpg').one() %}
-            <img style="{% if placeholder.hasFocalPoint %}{% set x = placeholder.focalPoint | first * 100 ~ '%' %}{% set y = placeholder.focalPoint | last * 100 ~ '%' %}object-position: {{x}} {{y}};{% endif %}" src="{{ placeholder.url }}" alt="{{ placeholder.title }} | {{ siteName }}" class="responsive-img">
+            <img style="{% if placeholder.hasFocalPoint %}{% set x = placeholder.focalPoint | first * 100 ~ '%' %}{% set y = placeholder.focalPoint | last * 100 ~ '%' %}object-position: {{x}} {{y}};{% endif %}" data-src="{{ placeholder.url }}" alt="{{ placeholder.title }} | {{ siteName }}" class="responsive-img lazyload">
           {% endif %}
         </a>
       </div>

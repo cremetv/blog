@@ -34,6 +34,8 @@ const getInstaFeed = (token) => {
   xhr.withCredentials = true;
   xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
   xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+  xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+  xhr.setRequestHeader('Access-Control-Allow-Credentials', true);
   xhr.addEventListener('load', function() {
     let data = JSON.parse(this.repsone);
     console.log(data);

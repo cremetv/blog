@@ -283,6 +283,14 @@
           justify-content: center;
           align-items: center;
           padding: 0 1rem;
+          position: relative;
+
+          span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-indent: -999999px;
+          }
 
           > svg {
             width: 100%;

@@ -6,6 +6,8 @@
 @import 'base/grid';
 
 /* Components */
+@import 'components/mapbox_gl';
+@import 'components/mapbox';
 @import 'components/cookie';
 @import 'components/links';
 @import 'components/images';
@@ -22,5 +24,6 @@
 @import 'custom/main';
 @import 'custom/js-tween';
 
+@import 'custom/pages/home';
 @import 'custom/pages/legal';
 @import 'custom/pages/category';

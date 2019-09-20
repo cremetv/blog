@@ -2,4 +2,8 @@
 <div class="intro">
   <img class="responsive-img" style="{% if openingImage.hasFocalPoint %}{% set x = openingImage.focalPoint | first * 100 ~ '%' %}{% set y = openingImage.focalPoint | last * 100 ~ '%' %}object-position: {{x}} {{y}};{% endif %}" src="{{ openingImage.url }}" alt="{{ openingImage.title }} | {{ siteName }}">
 </div>
+{% else %}
+<div class="intro">
+  <div id="map" class="map"></div>
+</div>
 {% endif %}

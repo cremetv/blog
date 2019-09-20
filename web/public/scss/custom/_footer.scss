@@ -46,6 +46,15 @@
       height: calc(1.5rem + 2rem);
       padding: 1rem 2rem;
       mix-blend-mode: difference;
+      position: relative;
+      overflow: hidden;
+
+      span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        text-indent: -999999px;
+      }
 
       svg {
         height: 1.25rem;

@@ -20,7 +20,26 @@ self.addEventListener('install', function(e) {
 self.addEventListener('fetch', function(e) {
   e.respondWith(
     caches.match(e.request).then(function(response) {
-      return response || fetch(e.request);
+      // return response || fetch(e.request);
+      if (response) return response;
+
+      // return fetch(e.request);
+
+      return fetch(e.request).then(function(response) {
+        // check if we receive a valid response
+        if (!response || response.status !== 200 || response.type !== 'basic') {
+          return response;
+        }
+
+        let responseToCache = response.clone();
+
+        caches.open(cacheName).then(function(cache) {
+          cache.put(e.request, responseToCache);
+        });
+
+        return response;
+      });
+
     })
   );
 });

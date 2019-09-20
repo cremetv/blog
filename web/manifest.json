@@ -1,11 +1,11 @@
 {
-  "name": "Glorias Blog",
-  "short_name": "MG Blog",
+  "name": "gebt euch cool",
+  "short_name": "gebt euch",
   "lang": "de-DE",
   "start_url": "index.php",
   "display": "standalone",
   "background_color": "white",
-  "theme_color": "#000000",
+  "theme_color": "#69b9b6",
   "icons": [
     {
       "src": "public/images/icons/128.png",

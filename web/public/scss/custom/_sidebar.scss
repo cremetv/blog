@@ -103,6 +103,8 @@
           display: block;
           position: relative;
           width: 100%;
+          text-indent: -999999px;
+          overflow: hidden;
 
           &:before {
             display: block;
@@ -117,6 +119,12 @@
                 opacity: 1;
               }
             }
+          }
+
+          span {
+            position: absolute;
+            left: 0;
+            top: 0;
           }
         }
 
@@ -165,6 +173,15 @@
         display: block;
         width: 1.25rem;
         height: 1.25rem;
+        overflow: hidden;
+        position: relative;
+
+        span {
+          position: absolute;
+          left: 0;
+          top: 0;
+          text-indent: -999999px;
+        }
 
         > svg {
           width: 100%;
