@@ -2,7 +2,8 @@
 
   <div class="about">
     <div class="about__img">
-      <img class="lazyload" data-src="https://images.unsplash.com/photo-1528195135899-cf5d190bb3a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" alt="">
+      {% set aboutImg = craft.assets.filename('instagram_4.jpg').one() %}
+      <img class="lazyload" data-src="{{ aboutImg.url }}" alt="{{ aboutImg.title }} | {{ siteName }}">
     </div>
 
     <div class="about__info">

@@ -18,7 +18,7 @@
 
   <link rel="manifest" href="manifest.json">
 
-  {% do view.registerCssFile(rev(siteUrl ~ 'public/css/style.min.css?v=220920192240')) %}
+  {% do view.registerCssFile(rev(siteUrl ~ 'public/css/style.min.css?v=240920190949')) %}
 
   {% block headScripts %}{% endblock %}
 
@@ -86,7 +86,7 @@
 
 {# {% do view.registerJsFile(siteUrl ~ "public/js/utility/barba.min.js") %} #}
 {% do view.registerJsFile(rev(siteUrl ~ 'public/js/utility/lazysizes.min.js'), {"async": "async", "defer": "defer"}) %}
-{% do view.registerJsFile(rev(siteUrl ~ 'public/js/main.min.js?v=220920192240')) %}
+{% do view.registerJsFile(rev(siteUrl ~ 'public/js/main.min.js?v=240920190949')) %}
 {% block scripts %}{% endblock %}
 {% js %}
   L.mapbox.accessToken = 'pk.eyJ1IjoiY3JlbWV5dCIsImEiOiJjamthcm9hZXAyenFlM2pyeWMwMjV0MGdzIn0.1b2TFDagHOayvurUim2WjQ';
